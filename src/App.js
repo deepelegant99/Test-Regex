@@ -4,7 +4,8 @@ export default function App() {
   const [inputs, setInputs] = useState({
     regex: "",
     sentence: "",
-    isIn: false
+    isIn: false,
+    display: false
   });
   // We want a single eventhandler for first name, and last name input field
 
@@ -26,8 +27,16 @@ export default function App() {
 
     setInputs({
       ...inputs,
-      isIn: val
+      isIn: val,
+      display: true
     });
+
+    setTimeout(() => {
+      setInputs({
+        ...inputs,
+        display: false
+      });
+    }, 3000);
   };
 
   return (
@@ -63,7 +72,9 @@ export default function App() {
           className={styles.submitStyle}
         />
       </form>
-      <h1 className={styles.outStyle}>{inputs.isIn ? "True" : "False"}</h1>
+      {inputs.display && (
+        <h1 className={styles.outStyle}>{inputs.isIn ? "True" : "False"}</h1>
+      )}
     </>
   );
 }
