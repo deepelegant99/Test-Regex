@@ -7,7 +7,6 @@ export default function App() {
     isIn: false,
     display: false
   });
-  // We want a single eventhandler for first name, and last name input field
 
   const handleChange = (event) => {
     const name = event.target.name;
